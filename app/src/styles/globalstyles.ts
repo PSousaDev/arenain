@@ -9,11 +9,14 @@ export const GlobalStyles = createGlobalStyle`
   padding: 0;
   box-sizing: border-box;
   
+  
+  
  }
 body{
   font-family: "Heebo", sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: var(--background);
+  
   
   @media ${device.mobile} {
     background: url("/images/stars-mobile.png");
@@ -24,6 +27,7 @@ body{
  }
 :root {
   /* Colors */
+  
   --space: #0B1E8A;
   --space-ligth: #3D68B2;
   --space-dark: #040327;

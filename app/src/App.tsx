@@ -1,12 +1,12 @@
+import { useState } from 'react';
 import Button from './components/button';
 import Form from './components/form';
 import Gallery from './components/galery';
 import { ArrowLeft,ArrowRight} from './components/galery/styles';
 import Icon from './components/icons';
 import { GlobalStyles } from './styles/globalstyles'
-
 import {
-  Container, Header, Logo, Main, FirstTitle, SecondTitle, Subtitle,  DivButton, DivIcons, SectionAbout, MarsImage, DivAboutMars, SecondSubTitle, TextMars, GalleryContent, ContainerAbout, TextLogo, DivLogo, TextSubscribe, DivLogoIN, SectionForm,
+  Container, Header, Logo, Main, FirstTitle, SecondTitle, Subtitle,  DivButton, DivIcons, SectionAbout, DivAboutMars, SecondSubTitle, TextMars, GalleryContent, ContainerAbout, TextLogo, DivLogo, TextSubscribe, DivLogoIN, SectionForm,
   DivForm, IconForm, TitleForm, SubtitleForm, DivRocketImage, DivInputCheckbox, InputCheckbox, TextCheckbox, SectionFooter, DivFooterBottom, DivSocial, DivFooterMenu, ContainerForm , AstrounautIllustration, TrophyImage
 } from './styles/styles'
 
@@ -15,7 +15,22 @@ import {
 import pixelToRem from './utils/pxToRem'
 
 export function App() {
-
+  const [check,setCheck]=useState(false)
+  const handleCheckedBox=() => {
+    setCheck((current) => !current)
+  };
+  const handleClickForm = () => {
+    const element = document.getElementById('form');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  const handleClickAbout = () => {
+    const element = document.getElementById('sobre');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <>
       <Container flex='column' margin={pixelToRem(24, 112, 50)}>
@@ -35,9 +50,8 @@ export function App() {
 
           <AstrounautIllustration />
 
-
           <DivButton>
-            <Button text="Inscreva-se agora" fullWidth />
+            <Button text="Inscreva-se agora" fullWidth onClick={handleClickForm} />
           </DivButton>
 
         </Main>
@@ -55,9 +69,9 @@ export function App() {
             },
           }}
         >
-          <Icon src="/images/icon-rocket.svg" txt="Foguetes com a mais alta tecnologia e conforto." alt="Rocket" />
+          <Icon src="/images/icon-rocket.svg" txt="Decole sua carreira no evento mais aguardado " alt="Rocket" />
 
-          <Icon src="/images/icon-flag.svg" txt="Mais de 100 missões consecutivas com sucesso." alt="Flag" />
+          <Icon src="/images/icon-flag.svg" txt="Um marco na sua carreira como desenvolvedor" alt="Flag" />
           
           <Icon src="/images/icon-telescope.svg" txt="Experiencia única
         e exclusiva." alt="Telescope" />
@@ -71,13 +85,14 @@ export function App() {
 
       <SectionAbout
         flex='column'
+        
 
       >
 
         
           <Container width='100%' >
          
-          <ContainerAbout width="100%" alignItems='center' justifyContent='center'>
+          <ContainerAbout width="100%" alignItems='center' justifyContent='center' id='sobre'>
           
             <DivAboutMars
               whileInView="visible"
@@ -138,7 +153,7 @@ export function App() {
                   transition: { duration: 1, delay: 1 },
                 },
               }}
-            >
+              onClick={handleClickForm} >
               Inscreva-se agora
             </TextSubscribe>
           </DivLogoIN>
@@ -154,7 +169,7 @@ export function App() {
 
 
       <SectionForm
-      >
+      id="form">
         <ContainerForm>
           <DivForm
             whileInView="visible"
@@ -183,14 +198,23 @@ export function App() {
             <Form type="text" text='Seu nome' />
             <Form type="email" text='E-mail' />
             <Form type="number" text='Telefone' />
-
-            <DivInputCheckbox>
-              <InputCheckbox type="checkbox" />
-
-              <TextCheckbox>Concordo em receber comunicações</TextCheckbox>
+            {check==false &&(
+              <DivInputCheckbox >
+              <InputCheckbox type="checkbox" onChange={handleCheckedBox}/>
+              <TextCheckbox>Irei levar um convidado</TextCheckbox>
             </DivInputCheckbox>
+            
+            )}
+            
+            {check &&(<>
+             
+              <InputCheckbox type="checkbox"  onChange={handleCheckedBox}/>
+              <Form type="text" text='Seu nome' />
+              </>
+            
+            )}
 
-            <Button text="Garantir minha vaga" fullWidth />
+            <Button text="Garantir minha vaga" fullWidth value/>
 
           </DivForm>
 
@@ -216,20 +240,17 @@ export function App() {
 
 
           <DivFooterBottom>
-            <DivLogo>
-              <Logo/>
-            </DivLogo>
-
             <DivSocial>
-              <img src="/images/instagram.svg" alt="" />
+              <a href="https://www.instagram.com/infinity.school/" target='_blank'><img src="/images/instagram.svg" alt=""/></a>
+              <a href="https://infinityschool.com.br" target='_blank'><img src="/images/INOrange.ico" alt=""/></a>
        
             </DivSocial>
 
             <DivFooterMenu>
               <ul>
-                <li><a href="/">Início</a></li>
-                <li><a href="/">Sobre O evento</a></li>
-                <li><a href="/">Contato</a></li>
+                <li><a >Início</a></li>
+                <li><a onClick={handleClickAbout}>Sobre O evento</a></li>
+                <li><a href='http://infinityschool.com.br/contacts/'target='_blank'>Contato</a></li>
               </ul>
             </DivFooterMenu>
           </DivFooterBottom>

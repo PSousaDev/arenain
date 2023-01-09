@@ -1,18 +1,22 @@
 import { ButtonComponent } from './styles'
 
 
-export interface ButtonProps {
+export interface ButtonProps {  
   text?: string;
   fullWidth?: boolean;
   href?:string
-  Click?:any
+  onClick?:any
+  type?: string
+  value?:any
 }
 
-function Button({ Click,href,text, fullWidth }: ButtonProps) {
+function Button({ value,onClick,href,text, fullWidth }: ButtonProps) {
+  
   return (
     <>
       <ButtonComponent
-        onClick={Click}
+        value={value}
+        onClick={onClick}
         href={href}
         fullWidth={fullWidth}>
           

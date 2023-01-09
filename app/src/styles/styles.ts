@@ -28,6 +28,7 @@ interface ImageGalleryProps {
 
 export const Container = styled.div<GalleryFlexContainerProps>`
   display: flex;
+  
   flex-direction: ${(props) => props.flex};
   width: ${(props) => props.width};
   margin: ${(props) => props.margin};
@@ -63,6 +64,7 @@ export const Logo = styled.image<GalleryFlexContainerProps>`
 
 export const Main = styled.div`
   display: flex;
+  
   flex-direction: column;
   max-width: ${pixelToRem(815)};
   padding-bottom: ${pixelToRem(103)};
@@ -109,8 +111,8 @@ export const Subtitle = styled.p`
 `;
 
  export const AstrounautIllustration = styled.image`
-   width: ${pixelToRem(600)};
-   height: ${pixelToRem(800)};
+   width: ${pixelToRem(800)};
+   height: ${pixelToRem(1000)};
    position: absolute;
    background-image: url("/images/tacain.png");
    background-repeat: no-repeat;
@@ -160,7 +162,7 @@ export const DivIcons = styled(motion.div)`
 export const SectionAbout = styled.div<GalleryFlexContainerProps>`
   display: flex;
   justify-content: center;
-  background: url("/images/stars.jpg") no-repeat;
+  background: url("/images/background-stars-form.jpg") no-repeat;
   background-size: cover;
   flex-direction: ${(props) => props.flex};
   @media ${device.mobile} {
@@ -168,14 +170,6 @@ export const SectionAbout = styled.div<GalleryFlexContainerProps>`
   }
 `;
 
-export const MarsImage = styled(motion.image)`
-  width: ${pixelToRem(621)};
-  height: ${pixelToRem(621)};
-  background-image: url("/images/tacain.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
-`;
 
 export const DivAboutMars = styled(motion.div)<GalleryFlexContainerProps>`
   max-width: ${pixelToRem(603)};
@@ -242,15 +236,17 @@ export const TextSubscribe = styled(motion.p)`
 export const ContainerForm = styled.div`
   display: flex;
   width: 100%;
-  background: url("/images/background-stars-form.jpg") no-repeat;
+  margin-bottom:1rem;
+  
   background-size: cover;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
 export const SectionForm = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  
   background: url("/images/background-stars-form.jpg") no-repeat;
   background-size: cover;
   justify-content: space-around;
@@ -261,6 +257,7 @@ export const SectionForm = styled.div`
 
 export const DivForm = styled(motion.div)`
   background: var(--background-form);
+  
   border-radius: ${pixelToRem(20)};
   align-items: center;
   justify-content: center;
@@ -322,10 +319,11 @@ export const TextCheckbox = styled.p`
 `;
 
 export const SectionFooter = styled.div`
-  margin-top:12rem;
-  display: flex;
-  flex-direction: column; 
-  @media ${device.mobile} {
+margin-bottom: 1rem;
+margin-top:2rem;
+display: flex;
+flex-direction: column; 
+@media ${device.mobile} {
     display: none;
   }
 `;
@@ -347,11 +345,13 @@ export const DivSocial = styled.div`
 export const DivFooterMenu = styled.div`
   gap: ${pixelToRem(23)};
   & ul {
+    margin-left:${pixelToRem(600)};
     display: flex;
     list-style: none;
     gap: ${pixelToRem(53)};
   }
   & a {
+    cursor: pointer;
     color: var(--text);
     font: var(--text-3);
     text-decoration: none;
