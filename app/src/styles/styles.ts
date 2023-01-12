@@ -44,7 +44,7 @@ export const Container = styled.div<GalleryFlexContainerProps>`
 
 export const Header = styled.div`
   display: flex;
-
+  justify-content:center;
   padding-bottom: ${pixelToRem(95)};
   @media ${device.mobile} {
     padding-bottom: ${pixelToRem(78)};
@@ -77,9 +77,10 @@ export const Main = styled.div`
 
 export const FirstTitle = styled.div`
   color: var(--sun);
+  justify-content:center;
   font: var(--text-4);
   text-transform: uppercase;
-  letter-spacing: ${pixelToRem(5)};
+  letter-spacing: ${pixelToRem(3)};
   @media ${device.mobile} {
     font: var(--font-mobile-text-1);
     letter-spacing: ${pixelToRem(5)};
@@ -110,27 +111,27 @@ export const Subtitle = styled.p`
   }
 `;
 
- export const AstrounautIllustration = styled.image`
-   width: ${pixelToRem(800)};
-   height: ${pixelToRem(1000)};
-   position: absolute;
-   background-image: url("/images/tacain.png");
-   background-repeat: no-repeat;
-   right: 0;
-   top: ${pixelToRem(120)};
-   @media ${device.mobile} {
-     position: relative;
-     order: 4;
-     width: ${pixelToRem(307)};
-     left: ${pixelToRem(55)};
-   }
-   @media (max-width: ${pixelToRem(1200)}) {
-     position: relative;
-     order: 4;
-     width: ${pixelToRem(472)};
-     height: ${pixelToRem(600)};
-     left: 0;
-   }
+export const AstrounautIllustration = styled.image`
+  width: ${pixelToRem(800)};
+  height: ${pixelToRem(1000)};
+  position: absolute;
+  background-image: url("/images/tacain.png");
+  background-repeat: no-repeat;
+  right: 0;
+  top: ${pixelToRem(120)};
+  @media ${device.mobile} {
+    position: relative;
+    order: 4;
+    width: ${pixelToRem(307)};
+    left: ${pixelToRem(55)};
+  }
+  @media (max-width: ${pixelToRem(1200)}) {
+    position: relative;
+    order: 4;
+    width: ${pixelToRem(472)};
+    height: ${pixelToRem(600)};
+    left: 0;
+  }
 `;
 
 export const DivButton = styled.div`
